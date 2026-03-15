@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Lora", serif;
+
+  --color-verse-bg: #0a0a0b;
+  --color-verse-accent: #e2e8f0;
+  --color-verse-accent-muted: rgba(226, 232, 240, 0.05);
+  --color-verse-border: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-verse-bg text-slate-400 font-sans selection:bg-verse-accent/10;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-white;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+.journal-card {
+  @apply border-b border-verse-border py-12 transition-colors duration-200;
+}
+
+.journal-card:hover {
+  @apply border-verse-accent/30;
+}
+
+.glass-card {
+  @apply p-8 border border-verse-border bg-white/[0.01] rounded-none transition-colors duration-200;
+}
+
+.glass-card:hover {
+  @apply border-verse-accent/20;
+}
+
+.article-content {
+  @apply font-serif text-lg text-slate-300 leading-relaxed;
+}
+
+.article-content h2 {
+  @apply font-display text-2xl font-bold mt-12 mb-6 text-white;
+}
+
+.article-content p {
+  @apply mb-6;
+}
+
+.nav-link {
+  @apply text-sm font-medium text-slate-400 hover:text-white transition-colors relative py-2;
+}
+
+.nav-link.active {
+  @apply text-white;
+}
+
+.nav-link.active::after {
+  @apply content-[''] absolute bottom-0 left-0 w-full h-px bg-verse-accent;
+}
